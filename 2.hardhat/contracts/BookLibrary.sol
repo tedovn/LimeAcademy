@@ -40,7 +40,7 @@ contract BookLibrary is Owner {
         return bookTitles;
     }
 
-    function getBook(string memory _title) public view returns (Book memory){
+    function getBook(string memory _title) external view returns (Book memory){
         require(bookExistance[_title], "Book don`t exist!");
 
         return books[_title];

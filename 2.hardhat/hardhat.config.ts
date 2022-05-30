@@ -1,4 +1,5 @@
-require("@nomiclabs/hardhat-waffle");
+import { task } from "hardhat/config";
+import "@nomiclabs/hardhat-waffle";
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -38,5 +39,11 @@ module.exports = {
         },
       },
     ],
-  },
+  }
+  // networks: {
+  //   rinkeby: {
+  //     url: "https://rinkeby.infura.io/v3/62493c539da243b1a2ac7083e5b19292",
+  //     accounts: ['']
+  //   }
+  // }
 };
