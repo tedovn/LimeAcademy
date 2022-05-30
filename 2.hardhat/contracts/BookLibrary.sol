@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import { Owner } from "./Owner.sol";
+// import { Owner } from "./Owner.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract BookLibrary is Owner {
+contract BookLibrary is Ownable {
     string[] bookTitles;
     mapping(string => Book) books;
     mapping(string => bool) bookExistance;
@@ -21,7 +22,7 @@ contract BookLibrary is Owner {
     event BuyBookLog(string title, uint8 leftCopies);
     event ReturnBookLog(string title, uint8 availableCopies);
 
-    function addBook(string memory _title, uint8 _copies) public isOwner {
+    function addBook(string memory _title, uint8 _copies) public onlyOwner {
         require(_copies > 0, "Copies must be greater than 0");
 
         address[] memory addresses;
